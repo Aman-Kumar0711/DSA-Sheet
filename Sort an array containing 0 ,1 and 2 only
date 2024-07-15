@@ -1,0 +1,31 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        //iski brute force approach yeh hai ki koi bhi sorting algo use kar lo
+        //better approach yeh hai ki cnt kar lo teeno ko then ek order mei fill kar do array mei..isme TC hogi O(2N) and SC hogi O(N)
+        //optimal approach hai Dutch national flag algo
+        //iss algo mei 3 pointer hote hain and yeh 3 rule follow karti hai
+        //rule 1 is 0 se low-1 tak saare 0 honge
+        //rule 2 is low se mid-1 tak saare 1 honge
+        //rule 3 is high+1 se n-1 tak saare 2 honge
+        //mid se high tak kuchh bhi ho sakta hai
+        //hence initially mid mera 0th element per hoga and high last element per
+        int mid=0;
+        int low=0;
+        int high=nums.size()-1;
+        while(mid<=high){
+            if(nums[mid]==0){
+                swap(nums[low],nums[mid]);
+                low++;
+                mid++;
+            }
+            else if(nums[mid]==1) mid++;
+            else{
+                swap(nums[high],nums[mid]);
+                high--;
+            }
+        }
+        //iski TC hogi O(N) and SC is O(1)
+        
+    }
+};
