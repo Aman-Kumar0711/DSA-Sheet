@@ -9,7 +9,7 @@ public:
         //     if(it.second>=2) return it.first; [3,3,3,3] array hua to count >=2 hai na
         // }
         // return -1;
-        //Optimal approach hogi Tortoise and Hare method use karna...duplicate element hai matlab it will form a loop if we consider this array as a lnked list
+        //Optimal approach hogi Tortoise and Hare method use karna...duplicate element hai matlab it will form a loop if we consider this array as a linked list
         int slow=nums[0];
         int fast=nums[0];
         while(true){
