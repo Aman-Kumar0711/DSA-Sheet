@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if (nums.empty()) return 0;
+        //iski brute force approach to wahi hai ki main ek set mei pehle elements rakh doon fir uss set ke according array mei value put kar doon
+        //optimal approach hai 2 pointer
+        int i=0;
+        int j=i+1;
+        while(j<nums.size()){
+            if(nums[j]!=nums[i]){
+                nums[i+1]=nums[j];
+                i++;
+            }
+            j++;
+        }
+        return (i+1);
+    }
+};
