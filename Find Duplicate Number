@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        // unordered_map<int,int> mpp;
+        // for(int i=0;i<nums.size();i++){
+        //     mpp[nums[i]]++;
+        // }
+        // for(auto it:mpp){
+        //     if(it.second>=2) return it.first; [3,3,3,3] array hua to count >=2 hai na
+        // }
+        // return -1;
+        //Optimal approach hogi Tortoise and Hare method use karna...duplicate element hai matlab it will form a loop if we consider this array as a lnked list
+        int slow=nums[0];
+        int fast=nums[0];
+        while(true){
+            slow=nums[slow];
+            fast=nums[nums[fast]];
+            if(slow==fast) break;
+        }
+        slow=nums[0];
+        while(slow!=fast){
+            slow=nums[slow];
+            fast=nums[fast];
+        }
+        return slow;
+        //iski TC hai O(n) and SC is O(1)
+        
+    }
+};
