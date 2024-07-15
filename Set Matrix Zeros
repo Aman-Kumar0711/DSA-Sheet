@@ -1,0 +1,30 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        //iski brute approach hogi ki jaise hi mujhe zero mile to uski row and col mei 1 ko -1 kar doon 
+        //fir poora iterate karke jahaan -1 hai wahaan 0 rakh doon
+        //isme TC aayegi around n^3
+        //better solution mei instead of marking elements every time just keep a track ki given row ya given column mei koi bhi zero hai ki nahin...agar hai to automatically woh poora zero ho jaayega
+        int n=matrix.size();
+        int m=matrix[0].size();
+        vector<int> row(n,0);
+        vector<int> col(m,0);
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(matrix[i][j]==0){
+                    row[i]=1;
+                    col[j]=1;
+                }
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(row[i]||col[j]){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+        //TC is 2*n*m and SC is n+m
+        
+    }
+};
